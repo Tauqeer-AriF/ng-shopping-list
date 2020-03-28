@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="shop">
+<head>
+	<title>Shopping list</title>
+	<script type="text/javascript" src="angular.js"></script>
+    <script type="text/javascript" src="module.js"></script>
+
+    <style type="text/css">
+    	li{
+             background-color: black;
+             height: 30px;
+             padding: 5px;
+             color: white;
+    	}
+    	li.active{
+    		background-color: green;
+    	}
+    </style>
+</head>
+<body>
+
+<div ng-controller="ctr" style="width: 50%;margin: auto; border: 1px solid black">
+
+	<ul ng-repeat = "p in list" style="list-style: none;margin-right: 50px">
+		<li ng-click="addToList(p)" ng-class="{active:p.active}">{{ p.name| uppercase}} <span style=" float: right;">{{ p.price | currency}}</span></li>
+	</ul>
+	<div>
+		<p style="background-color: grey;color: white;padding: 5px;height:30px; font-size: 30px">Total: 
+			<span style="float: right;">{{ total() | currency}}</span>
+		</p>
+	</div>
+    
+
+</div>
+
+
+</body>
+</html>
